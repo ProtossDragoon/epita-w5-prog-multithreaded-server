@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "test_shared_queue build by Makefile",
+            "type": "shell",
+            "command": "make clean && make test_shared_queue",
+        },
+        {
+            "label": "server build by Makefile",
+            "type": "shell",
+            "command": "make clean && make server",
+        },
+    ]
+}

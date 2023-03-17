@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "debug: test_shared_queue",
+            "program": "${workspaceFolder}/test_shared_queue",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "test_shared_queue build by Makefile",
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "debug: server",
+            "program": "${workspaceFolder}/server",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "server build by Makefile",
+        },
+    ]
+}

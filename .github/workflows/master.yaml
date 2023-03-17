@@ -1,0 +1,22 @@
+name: Build & Run
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  basics:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: 체크아웃
+        uses: actions/checkout@v2
+
+      - name: 빌드
+        run: make
+
+      - name: test_shared_queue 실행
+        run: ./test_shared_queue
