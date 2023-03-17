@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  basics:
+  test_shared_queue:
     runs-on: ubuntu-latest
 
     steps:
