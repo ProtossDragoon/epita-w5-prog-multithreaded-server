@@ -25,7 +25,7 @@ queue* queue_pop(queue* start, int *pval)
     if (start == NULL) {
 	    return NULL;
     }
-    struct queue *old = start->next;
+    queue *old = start->next;
     int is_only_one_elem_in_q = (start == old)? 1: 0;
     *pval = old->val;
     start->next = old->next;
