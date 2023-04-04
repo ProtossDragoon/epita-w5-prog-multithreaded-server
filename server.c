@@ -108,13 +108,13 @@ int main()
 	while (1) {
 		int accepted_sfd = accept(sfd, NULL, NULL);
 		if (accepted_sfd == -1) {
-			// errx(-1, "accept()"); It is better to break this loop than terminating program.
-			// - Destroying a semaphore that other processes or threads are currently
-			//   blocked on (in sem_wait(3)) produces undefined behavior.
-			// - But if the program wouldn't call shared_queue_destroy() function,
-			//   there could be a memory leak.
-			// - Main thread shouldn't kill other threads that are working pretty well.
-			break;
+			// When accept() recieves SIGINT,
+			// every thread & server should be terminated.
+			shared_queue_destroy(queue);
+			close(sfd);
+			// When parent process is terminated,
+			// every threads are automatically terminated.
+			errx(accepted_sfd, "accept()");
 		}
 		shared_queue_push(queue, accepted_sfd);
 	}
